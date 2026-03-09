@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddScoped<InvoiceDocumentService>();
 builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
