@@ -5,7 +5,17 @@ using Invoicer.Services;
 using Invoicer.Services.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using Invoicer.Extensions;
 
+var builder = WebApplication.CreateBuilder(args);
+
+builder.Services.AddProjectServices(builder.Configuration);
+
+var app = builder.Build();
+
+app.UseProjectApplication();
+
+app.Run();
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<InvoiceDocumentService>();
 builder.Services.AddControllers();
